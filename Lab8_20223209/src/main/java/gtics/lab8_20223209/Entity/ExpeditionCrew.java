@@ -8,7 +8,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "expedition_crew")
 public class ExpeditionCrew implements Serializable {
@@ -25,5 +29,4 @@ public class ExpeditionCrew implements Serializable {
     @JoinColumn(name = "crew_member_id")
     private CrewMember crewMember;
 
-    // Getters y setters
 }

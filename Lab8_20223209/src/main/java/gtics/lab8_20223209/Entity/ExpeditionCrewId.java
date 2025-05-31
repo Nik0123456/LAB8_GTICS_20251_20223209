@@ -4,7 +4,11 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.Embeddable;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Embeddable
 public class ExpeditionCrewId implements Serializable {
     private Long expeditionId;
@@ -15,10 +19,6 @@ public class ExpeditionCrewId implements Serializable {
         this.expeditionId = expeditionId;
         this.crewMemberId = crewMemberId;
     }
-    public Long getExpeditionId() { return expeditionId; }
-    public void setExpeditionId(Long expeditionId) { this.expeditionId = expeditionId; }
-    public Long getCrewMemberId() { return crewMemberId; }
-    public void setCrewMemberId(Long crewMemberId) { this.crewMemberId = crewMemberId; }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
