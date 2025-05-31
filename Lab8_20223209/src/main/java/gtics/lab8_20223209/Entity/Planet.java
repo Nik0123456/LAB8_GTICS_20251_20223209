@@ -7,7 +7,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "planets")
 public class Planet {
@@ -32,5 +36,4 @@ public class Planet {
     @Column(columnDefinition = "TEXT")
     private String descripcion;
 
-    // Getters y setters
 }

@@ -10,7 +10,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "crew_members")
 public class CrewMember {
@@ -32,6 +36,4 @@ public class CrewMember {
     @Column(name = "fecha_contratacion", nullable = false)
     @NotNull
     private LocalDate fechaContratacion;
-
-    // Getters y setters
 }

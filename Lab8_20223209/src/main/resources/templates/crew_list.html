@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Miembros de Tripulación</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Miembros de Tripulación</h2>
+    <div class="mb-2">
+        <a th:href="@{/crew/new}" class="btn btn-primary btn-sm">Agregar Nuevo Miembro</a>
+        <a th:href="@{/}" class="btn btn-secondary btn-sm">Volver al Panel</a>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Nombre Completo</th>
+            <th>Especialidad</th>
+            <th>Rango</th>
+            <th>Fecha Contratación</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="crew : ${crewList}">
+            <td th:text="${crew.nombreCompleto}"></td>
+            <td th:text="${crew.especialidad}"></td>
+            <td th:text="${crew.rango}"></td>
+            <td th:text="${crew.fechaContratacion}"></td>
+            <td>
+                <a th:href="@{'/crew/details/' + ${crew.id}}">Ver Detalles</a>
+                <a th:href="@{'/crew/edit/' + ${crew.id}}">Editar</a>
+                <a th:href="@{'/crew/delete/' + ${crew.id}}" onclick="return confirm('¿Eliminar miembro?')">Eliminar</a>
+            </td>
+        </tr>
+        <tr th:if="${crewList.size() == 0}"><td colspan="5">No hay miembros de tripulación registrados.</td></tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

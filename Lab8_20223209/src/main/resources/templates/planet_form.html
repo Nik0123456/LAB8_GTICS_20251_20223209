@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Planeta</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Formulario de Planeta</h2>
+    <form th:action="@{/planets/save}" th:object="${planet}" method="post">
+        <div class="mb-3">
+            <label>Nombre:</label>
+            <input type="text" th:field="*{nombre}" class="form-control"/>
+            <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+        </div>
+        <div class="mb-3">
+            <label>Tipo de Planeta:</label>
+            <input type="text" th:field="*{tipoPlaneta}" class="form-control"/>
+            <div class="text-danger" th:if="${#fields.hasErrors('tipoPlaneta')}" th:errors="*{tipoPlaneta}"></div>
+        </div>
+        <div class="mb-3">
+            <label>Habitable:</label>
+            <input type="checkbox" th:field="*{habitable}"/>
+            <div class="text-danger" th:if="${#fields.hasErrors('habitable')}" th:errors="*{habitable}"></div>
+        </div>
+        <div class="mb-3">
+            <label>Gravedad Relativa (vs Tierra):</label>
+            <input type="number" step="0.01" th:field="*{gravedadRelativa}" class="form-control"/>
+            <div class="text-danger" th:if="${#fields.hasErrors('gravedadRelativa')}" th:errors="*{gravedadRelativa}"></div>
+        </div>
+        <div class="mb-3">
+            <label>Descripción:</label>
+            <textarea th:field="*{descripcion}" class="form-control"></textarea>
+            <div class="text-danger" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>
+        </div>
+        <button type="submit" class="btn btn-success">Guardar Planeta</button>
+        <a th:href="@{/}" class="btn btn-danger">Cancelar</a>
+    </form>
+</div>
+</body>
+</html>
